@@ -48,7 +48,7 @@ const tetrominoL = [
   // select tetrominos randomly
   const randomTetromino = Math.floor(Math.random()*allTetrominos.length);
   console.log(randomTetromino);
-  let current = allTetrominos[random][currentRotation];
+  let current = allTetrominos[randomTetromino][currentRotation];
 
   // add clast list tetromino to all 
   function draw() {
@@ -63,3 +63,11 @@ const tetrominoL = [
     })
   }
 
+  // create a function that moves the tetrominos down every second - setinterval 1000
+  timerId = setInterval(goDown, 1000);
+
+  function goDown() {
+    undraw();
+    currentPosition += width;
+    draw();
+  }
